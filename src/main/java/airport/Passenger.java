@@ -1,10 +1,12 @@
+package airport;
+
 import java.util.Objects;
 
 public class Passenger {
     private String name;
     private boolean vip;
 
-    Passenger(String name, boolean vip) {
+    public Passenger(String name, boolean vip) {
         this.name = name;
         this.vip = vip;
     }
@@ -13,7 +15,7 @@ public class Passenger {
         return name;
     }
 
-    boolean isVip() {
+   public boolean isVip() {
         return vip;
     }
 

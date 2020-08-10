@@ -1,5 +1,10 @@
-public class BusinessFlight extends Flight {
-    BusinessFlight(String id) {
+package airport;
+
+import airport.Flight;
+import airport.Passenger;
+
+public class PremiumFlight extends Flight {
+    public PremiumFlight(String id) {
         super(id);
     }
 
@@ -13,6 +18,9 @@ public class BusinessFlight extends Flight {
 
     @Override
     public boolean removePassenger(Passenger passenger) {
+        if (passenger.isVip()) {
+            return passengerSet.remove(passenger);
+        }
         return false;
     }
 }

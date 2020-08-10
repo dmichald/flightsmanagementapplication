@@ -1,3 +1,7 @@
+package airport;
+
+import airport.Passenger;
+
 import java.util.*;
 
 public abstract class Flight {
@@ -13,19 +17,19 @@ public abstract class Flight {
 
     public abstract boolean removePassenger(Passenger passenger);
 
-    String getId() {
+    public String getId() {
         return id;
     }
 
-    Set<Passenger> getPassengers() {
+    public Set<Passenger> getPassengers() {
         return Collections.unmodifiableSet(passengerSet);
     }
 
-    int getDistance() {
+    public int getDistance() {
         return distance;
     }
 
-    void setDistance(int distance) {
+    public void setDistance(int distance) {
         this.distance = distance;
     }
 }

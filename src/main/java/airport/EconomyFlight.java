@@ -1,5 +1,9 @@
+package airport;
+
+import airport.Passenger;
+
 public class EconomyFlight extends Flight {
-    EconomyFlight(String id) {
+    public EconomyFlight(String id) {
         super(id);
     }
 

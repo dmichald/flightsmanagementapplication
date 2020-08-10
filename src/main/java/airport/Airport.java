@@ -1,3 +1,5 @@
+package airport;
+
 import java.sql.SQLOutput;
 
 public class Airport {

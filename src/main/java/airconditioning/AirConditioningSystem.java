@@ -17,7 +17,6 @@ public class AirConditioningSystem {
         return open;
     }
 
-
     public void setThermometer(Thermometer thermometer) {
         this.thermometer = thermometer;
     }

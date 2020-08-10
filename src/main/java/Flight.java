@@ -1,10 +1,8 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public abstract class Flight {
     private String id;
-    List<Passenger> passengerList = new ArrayList<>();
+    Set<Passenger> passengerSet = new HashSet<>();
 
     Flight(String id) {
         this.id = id;
@@ -18,7 +16,7 @@ public abstract class Flight {
         return id;
     }
 
-    List<Passenger> getPassengerList() {
-        return Collections.unmodifiableList(passengerList);
+    Set<Passenger> getPassengers() {
+        return Collections.unmodifiableSet(passengerSet);
     }
 }

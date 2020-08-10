@@ -14,11 +14,11 @@ public class Airport {
         economyFlight.addPassenger(mike);
 
         System.out.println("Business trip passengers list: ");
-        for(Passenger passenger: businessFlight.getPassengerList()){
+        for(Passenger passenger: businessFlight.getPassengers()){
             System.out.println(passenger.getName());
         }
         System.out.println("Economy flight passengers list: ");
-        for(Passenger passenger: economyFlight.getPassengerList()){
+        for(Passenger passenger: economyFlight.getPassengers()){
             System.out.println(passenger.getName());
         }
     }

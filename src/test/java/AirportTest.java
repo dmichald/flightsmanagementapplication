@@ -1,7 +1,4 @@
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -54,12 +51,8 @@ class AirportTest {
                         () -> assertEquals(true, economyFlight.removePassenger(ewa)),
                         () -> assertEquals(0, economyFlight.getPassengerList().size())
                 );
-
             }
-
         }
-
-
     }
 
     @DisplayName("Given there is a business flight")
@@ -103,6 +96,53 @@ class AirportTest {
                         () -> assertEquals(1, businessFlight.getPassengerList().size()),
                         () -> assertEquals(false, businessFlight.removePassenger(john)),
                         () -> assertEquals(1, businessFlight.getPassengerList().size())
+                );
+            }
+        }
+    }
+
+    @Nested
+    @DisplayName("Given there is a  premium flight test")
+    class PremiumFlightTest {
+        private Flight flight;
+        private Passenger mike;
+        private Passenger john;
+
+        @BeforeEach
+        void init() {
+            flight = new PremiumFlight("3");
+            mike = new Passenger("Mike", false);
+            john = new Passenger("John", true);
+        }
+
+        @Nested
+        @DisplayName("when we have a usual passenger")
+        class UsualPassenger {
+
+            @Test
+            @DisplayName("then you cannot add or remove him from a premium flight")
+            void testPremiumFlightUsualPassenger() {
+                assertAll(
+                        () -> assertEquals(false, flight.addPassenger(mike)),
+                        () -> assertEquals(0, flight.getPassengerList().size()),
+                        () -> assertEquals(false, flight.removePassenger(mike)),
+                        () -> assertEquals(0, flight.getPassengerList().size())
+                );
+            }
+        }
+
+        @Nested
+        @DisplayName(" when we have a vip passenger")
+        class VipPassenger {
+
+            @Test
+            @DisplayName("then you can add and remove him from a premium flight")
+            void testPremiumVipPassenger() {
+                assertAll(
+                        () -> assertEquals(true, flight.addPassenger(john)),
+                        () -> assertEquals(1, flight.getPassengerList().size()),
+                        () -> assertEquals(true, flight.removePassenger(john)),
+                        () -> assertEquals(0, flight.getPassengerList().size())
                 );
             }
         }
